@@ -1,0 +1,55 @@
+{% extends 'university/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Отчёт об успеваемости</h1>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Лучший студент</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ best_student.name }}</h5>
+                    <p class="card-text">
+                        Группа: {{ best_student.group }}<br>
+                        Средний балл: {{ best_student.avg_grade|floatformat:2 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-header">Худший студент</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ worst_student.name }}</h5>
+                    <p class="card-text">
+                        Группа: {{ worst_student.group }}<br>
+                        Средний балл: {{ worst_student.avg_grade|floatformat:2 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Статистика по предметам</h3>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Предмет</th>
+                <th>Средний балл</th>
+                <th>Количество оценок</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject in subjects_stats %}
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.avg_grade|floatformat:2 }}</td>
+                <td>{{ subject.grade_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -18,7 +18,10 @@ class Subject(models.Model):
 class Grade(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="Студент")
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, verbose_name="Предмет")
-    value = models.IntegerField(verbose_name="Оценка")
+    value = models.IntegerField(
+        verbose_name="Оценка",
+        choices=[(i, i) for i in range(1, 6)]  # Оценки от 1 до 5
+    )
     date = models.DateField(auto_now_add=True, verbose_name="Дата")
 
     def __str__(self):
