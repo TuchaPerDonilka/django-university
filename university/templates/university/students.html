@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Успеваемость студентов</title>
+</head>
+<body>
+    <h1>Список студентов</h1>
+    <ul>
+        {% for student in students %}
+        <li>
+            {{ student.name }} (Группа: {{ student.group }}) 
+            - Средний балл: {{ student.avg_grade|floatformat:2 }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
