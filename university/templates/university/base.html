@@ -12,6 +12,8 @@
             <a class="navbar-brand" href="{% url 'student_list' %}">Университет</a>
             <div class="navbar-nav">
                 <a class="nav-link" href="{% url 'student_list' %}">Студенты</a>
+                <a class="nav-link" href="{% url 'subject_list' %}">Предметы</a>  <!-- Добавлено -->
+                <a class="nav-link" href="{% url 'grade_list' %}">Оценки</a>     <!-- Добавлено -->
                 <a class="nav-link" href="{% url 'performance_report' %}">Отчёт</a>
                 <a class="nav-link" href="/admin/">Админка</a>
             </div>

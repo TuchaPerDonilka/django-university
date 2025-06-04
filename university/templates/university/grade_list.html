@@ -1,0 +1,33 @@
+{% extends 'university/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Список оценок</h1>
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Студент</th>
+                <th>Предмет</th>
+                <th>Оценка</th>
+                <th>Дата</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+            <tr>
+                <td>{{ grade.student.name }}</td>
+                <td>{{ grade.subject.name }}</td>
+                <td>{{ grade.value }}</td>
+                <td>{{ grade.date }}</td>
+                <td>
+                    <a href="{% url 'grade_update' grade.pk %}" class="btn btn-sm btn-warning">Изменить</a>
+                    <a href="{% url 'grade_delete' grade.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'grade_create' %}" class="btn btn-success">Добавить оценку</a>
+</div>
+{% endblock %}
