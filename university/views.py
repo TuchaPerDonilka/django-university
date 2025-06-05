@@ -61,7 +61,7 @@ def performance_report(request):
         'subjects_stats': subjects_stats
     })
 
-# Добавленные классы для предметов
+
 class SubjectListView(ListView):
     model = Subject
     template_name = 'university/subject_list.html'
@@ -84,7 +84,7 @@ class SubjectDeleteView(DeleteView):
     template_name = 'university/subject_confirm_delete.html'
     success_url = reverse_lazy('subject_list')
 
-# Добавленные классы для оценок
+
 class GradeListView(ListView):
     model = Grade
     template_name = 'university/grade_list.html'
